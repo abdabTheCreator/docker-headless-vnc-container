@@ -66,7 +66,7 @@ RUN wget "https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.
 RUN unzip temp.zip && rm temp.zip
 RUN ./gradlew genEclipseRun
 
-
+USER 1000
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
