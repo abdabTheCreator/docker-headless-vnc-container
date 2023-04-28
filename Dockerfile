@@ -54,6 +54,8 @@ RUN $INST_SCRIPTS/chrome.sh
 RUN $INST_SCRIPTS/icewm_ui.sh
 ADD ./src/debian/icewm/ $HOME/
 
+
+
 ### configure startup
 RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
@@ -61,21 +63,10 @@ RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
 ### Install Minecraft
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get install -y curl wget unzip openjdk-17-jdk
+RUN apt-get install -y curl wget unzip openjdk-17-jdk git
 RUN mkdir minecraftforge && cd minecraftforge && \
 wget "https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.0/forge-1.18.2-40.2.0-mdk.zip" -O temp.zip && \
 unzip temp.zip && rm temp.zip && ./gradlew genEclipseRun
-
-### Create desktop file for minecraft
-RUN touch minecraft.desktop
-RUN echo [Desktop Entry] \
-Encoding=UTF-8 \
-Version=1.0 \
-Type=Application \
-Terminal=false \
-Exec= ~/minecraftforge/./gradlew runClient \
-Name=Minecraft \
-Icon=/path/to/icon \ >> minecraft.desktop && mv minecraft.desktop /usr/share/applications/
 
 RUN wget "https://download-cdn.jetbrains.com/idea/ideaIC-2021.2.3.tar.gz" && tar xvf ideaIC-2021.2.3.tar.gz && mv idea-IC-212.5457.46/ /opt/idea && rm ideaIC-2021.2.3.tar.gz 
 
