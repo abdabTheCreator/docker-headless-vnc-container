@@ -79,7 +79,5 @@ Icon=/path/to/icon \ >> minecraft.desktop && mv minecraft.desktop /usr/share/app
 
 RUN wget "https://download-cdn.jetbrains.com/idea/ideaIC-2021.2.3.tar.gz" && tar xvf ideaIC-2021.2.3.tar.gz && mv idea-IC-212.5457.46/ /opt/idea && rm ideaIC-2021.2.3.tar.gz 
 
-
-
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]

@@ -2,3 +2,5 @@ prog xterm xterm xterm
 separator
 prog Firefox /usr/lib/firefox/browser/icons/mozicon128.png firefox
 prog Chromium /usr/share/pixmaps/chromium-browser.png /usr/bin/chromium-browser
+prog IntelliJ /usr/share/pixmaps/none.png /opt/idea/bin/idea.sh
+prog Minecraft /usr/share/pixmaps/none.png /minecraftforge/./gradlew RunClient
